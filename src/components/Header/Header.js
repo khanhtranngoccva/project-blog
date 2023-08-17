@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import clsx from 'clsx';
 import { Rss, Sun, Moon } from 'react-feather';
@@ -6,8 +7,11 @@ import Logo from '@/components/Logo';
 import VisuallyHidden from '@/components/VisuallyHidden';
 
 import styles from './Header.module.css';
+import {DarkModeContext} from "@/components/DarkModeProvider";
 
-function Header({ theme, className, ...delegated }) {
+function Header({ className, ...delegated }) {
+  const {darkMode, toggleDarkMode} = React.useContext(DarkModeContext)
+
   return (
     <header
       className={clsx(styles.wrapper, className)}
@@ -28,8 +32,8 @@ function Header({ theme, className, ...delegated }) {
             View RSS feed
           </VisuallyHidden>
         </button>
-        <button className={styles.action}>
-          <Sun size="1.5rem" />
+        <button className={styles.action} onClick={toggleDarkMode}>
+          {darkMode ? <Moon size={"1.5em"}></Moon> : <Sun size={"1.5em"}></Sun>}
           <VisuallyHidden>
             Toggle dark / light mode
           </VisuallyHidden>

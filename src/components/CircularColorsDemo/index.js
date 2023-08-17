@@ -1,2 +1,5 @@
+import dynamic from "next/dynamic";
+
 export * from './CircularColorsDemo';
-export { default } from './CircularColorsDemo';
+const CircularColorsDemo = dynamic(() => import( './CircularColorsDemo'));
+export default CircularColorsDemo;

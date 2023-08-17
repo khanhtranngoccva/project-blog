@@ -12,3 +12,18 @@
   margin-top: 1em;
   margin-bottom: 1.5em;
 }
+
+.notFound {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  width: min(var(--content-width), 100%);
+  padding: 12rem var(--viewport-padding);
+  gap: 1rem;
+  text-align: center;
+  margin: auto;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
